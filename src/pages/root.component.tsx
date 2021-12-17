@@ -5,14 +5,14 @@ import { Route, Switch } from 'react-router-dom';
 // import Cars from '@pages/car/car.page';
 import { routes } from '@pages/routes';
 
+import Dashboard from '@pages/dashboard/dashboard.page';
+
 const PageRoot: React.FC = () => {
 
     return (
         <Switch>
-            <Route path={routes.home.url}>
-                <>
-                    <h1>Welcome!</h1>
-                </>
+            <Route exact path={routes.home.url}>
+                <Dashboard />
             </Route>
         </Switch>
     );
