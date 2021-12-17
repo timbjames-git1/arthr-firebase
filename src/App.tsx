@@ -1,25 +1,55 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ReduxToastr from 'react-redux-toastr';
 
-function App() {
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
+
+import store from '@state/redux-store';
+import ProviderWrapper from '@state/provider.component';
+import PageRoot from '@pages/root.component';
+import MainNavigation from '@pages/navigation/navigation.component';
+
+import { Toaster, ToastBar } from 'react-hot-toast';
+
+const App: React.FC = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ProviderWrapper store={store}>
+
+        <MainNavigation />
+
+        <div className="container mt-3">
+
+          <PageRoot />
+
+        </div>
+
+      <ReduxToastr 
+        timeOut={3000} 
+        preventDuplicates 
+        position="bottom-right" 
+        transitionIn="fadeIn" 
+        transitionOut="fadeOut" 
+        closeOnToastrClick progressBar />
+
+      <Toaster>
+        {
+          (t) => (
+            <ToastBar toast={t}>
+              {
+                ({ icon, message }) => (
+                  <>
+                    {icon}
+                    {message} boooooo
+                  </>
+                )
+              }
+            </ToastBar>
+          )
+        }
+      </Toaster>
+
+    </ProviderWrapper>
   );
 }
 

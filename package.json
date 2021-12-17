@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -10,22 +11,49 @@
     "@types/node": "^16.11.14",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
+    "@types/react-redux": "^7.1.16",
+    "@types/react-redux-toastr": "^7.6.0",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.1.0",
+    "bootstrap-icons": "^1.5.0",
+    "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-flow-renderer": "^9.6.8",
+    "react-hot-toast": "^2.1.1",
+    "react-redux": "^7.2.3",
+    "react-redux-toastr": "^7.6.5",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.0",
     "typescript": "^4.5.4",
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start-old": "react-scripts start",
+    "build-old": "react-scripts build",
+    "test-old": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -39,5 +67,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@craco/craco": "^6.2.0",
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-links": "^6.3.7",
+    "@storybook/node-logger": "^6.3.7",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.3.7",
+    "@types/bootstrap": "^5.1.0",
+    "@types/react-router-dom": "^5.1.7",
+    "craco-alias": "^3.0.1",
+    "storybook-preset-craco": "0.0.6"
   }
 }
